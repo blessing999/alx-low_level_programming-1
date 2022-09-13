@@ -1,49 +1,31 @@
-/*
- * File: 100-times_table.c
- * Auth: Brennan D Baraban
- */
-
-#include "holberton.h"
+#include <stdio.h>
 
 /**
- * print_times_table - Prints the times table of the input,
- *                     starting with 0.
- * @n: The value of the times table to be printed.
+ * main - prints all possible different combinations of two digits.
+ * Return: Always 0 (Success)
  */
-void print_times_table(int n)
+
+int main(void)
 {
-	int num, mult, prod;
+	int ones = '0';
+	int tens = '0';
 
-	if (n >= 0 && n <= 15)
+	for (tens = '0'; tens <= '9'; tens++)/* prints tens digit*/
 	{
-		for (num = 0; num <= n; num++)
+		for (ones = '0'; ones <= '9'; ones++)/* prints ones digit*/
 		{
-			_putchar('0');
-
-			for (mult = 1; mult <= n; mult++)
+			if (!((ones == tens) || (tens > ones)))/*eliminates repeatition*/
 			{
-				_putchar(',');
-				_putchar(' ');
-
-				prod = num * mult;
-
-				if (prod <= 99)
-					_putchar(' ');
-				if (prod <= 9)
-					_putchar(' ');
-
-				if (prod >= 100)
+				putchar(tens);
+				putchar(ones);
+				if (!(ones == '9' && tens == '8'))/*addes comma and space*/
 				{
-					_putchar((prod / 100) + '0');
-					_putchar(((prod / 10)) % 10 + '0');
+					putchar(',');
+					putchar(' ');
 				}
-				else if (prod <= 99 && prod >= 10)
-				{
-					_putchar((prod / 10) + '0');
-				}
-				_putchar((prod % 10) + '0');
 			}
-			_putchar('\n');
 		}
 	}
+	putchar('\n');
+	return (0);
 }
