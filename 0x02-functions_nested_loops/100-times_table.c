@@ -1,31 +1,41 @@
-#include <stdio.h>
+#include"main.h"
 
 /**
- * main - prints all possible different combinations of two digits.
- * Return: Always 0 (Success)
- */
+ * print_times_table - prints time table of n
+ *
+ * @n: takes number input
+*/
 
-int main(void)
+void print_times_table(int n)
 {
-	int ones = '0';
-	int tens = '0';
+int prod, mult, num;
 
-	for (tens = '0'; tens <= '9'; tens++)/* prints tens digit*/
+	if (n <= 15 && n >= 0)
 	{
-		for (ones = '0'; ones <= '9'; ones++)/* prints ones digit*/
+		for (num = 0; num <= n; ++num)
 		{
-			if (!((ones == tens) || (tens > ones)))/*eliminates repeatition*/
+			_putchar(48);
+			for (mult = 1; mult <= n; ++mult)
 			{
-				putchar(tens);
-				putchar(ones);
-				if (!(ones == '9' && tens == '8'))/*addes comma and space*/
+				_putchar(',');
+				_putchar(' ');
+
+				prod = num * mult;
+
+				if (prod <= 9)
+					_putchar(' ');
+				if (prod <= 99)
+					_putchar(' ');
+
+				if (prod >= 100)
 				{
-					putchar(',');
-					putchar(' ');
-				}
+					_putchar((prod / 100) + 48);
+					_putchar((prod / 10) % 10 + 48);
+				} else if (prod <= 99 && prod >= 10)
+					_putchar((prod / 10) + 48);
+				_putchar((prod % 10) + 48);
 			}
+			_putchar('\n');
 		}
 	}
-	putchar('\n');
-	return (0);
 }
