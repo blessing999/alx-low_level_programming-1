@@ -1,25 +1,29 @@
-#include "main.h"
-/**
-*print_square - prints squares
-*@size: parameter
-*Return:returns nothing
-*/
-void print_square(int size)
-{
-int inc1, inc2;
-if (size > 0)
-{
-for (inc1 = 0; inc1 < size; inc1++)
-{
-for (inc2 = 0; inc2 < (size - 1); inc2++)
-_putchar('#');
+#include <stdio.h>
 
-_putchar('#');
-_putchar('\n');
-}
-}
-else
+/**
+ * main - prints the numbers from 1 to 100, But for multiples of three
+ * print Fizz instead of the number and for the multiples of five print Buzz.
+ * For numbers which are multiples of both three and five print FizzBuzz.
+ * Return: Always 0 (success)
+ */
+
+int main(void)
 {
-_putchar('\n');
-}
+	int i;
+
+	for (i = 1; i <= 100; i++)
+	{
+	if (i == 100)
+		printf("Buzz");
+	else if (((i % 3) == 0) && ((i % 5) == 0))
+		printf("FizzBuzz ");
+	else if ((i % 3) == 0)
+		printf("Fizz ");
+	else if ((i % 5) == 0)
+		printf("Buzz ");
+	else
+		printf("%d ", i);
+	}
+	printf("\n");
+	return (0);
 }
