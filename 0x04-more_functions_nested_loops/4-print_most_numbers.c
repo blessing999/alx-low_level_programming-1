@@ -1,16 +1,23 @@
-#include "main.h"
+#include "holberton.h"
+
 /**
-*print_numbers - function that print all numbers from
-*0 to 9
-*
-*Return: returns nothing
-*/
-void print_numbers(void)
+ * print_most_numbers - prints numbers
+ * Return:0
+ */
+
+void print_most_numbers(void)
 {
-int number = 48;
-for (number = 48; number < 58; number++)
-{
-_putchar(number);
-}
-_putchar(10);
+	char n = 0;
+
+	while (n <= 9)
+	{
+		if (n != 2 && n != 4)
+		{
+			_putchar('0' + n);
+		}
+
+		n++;
+	}
+	_putchar('\n');
+
 }
